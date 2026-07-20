@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BRIBAR | Sintaxis de Java</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+
+        body {
+            background: #f4f2ff;
+            min-height: 100vh;
+        }
+
+
+        /* BARRA SUPERIOR */
+
+        .topbar {
+
+            height: 70px;
+
+            background: linear-gradient(
+                90deg,
+                #160d4d,
+                #3b208b
+            );
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 25px;
+        }
+
+
+        .logo {
+
+            font-size: 17px;
+
+            font-weight: bold;
+        }
+
+
+        .menu-btn {
+
+            display: none;
+
+            font-size: 28px;
+
+            cursor: pointer;
+        }
+
+
+        /* MENÚ LATERAL */
+
+        .sidebar {
+
+            position: fixed;
+
+            top: 70px;
+
+            left: 0;
+
+            width: 250px;
+
+            height: calc(100vh - 70px);
+
+            padding: 25px 15px;
+
+            background: linear-gradient(
+                180deg,
+                #21115c,
+                #120b3b
+            );
+
+            transition: 0.3s;
+        }
+
+
+        .sidebar h3 {
+
+            color: #ddd;
+
+            font-size: 13px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .sidebar a {
+
+            display: block;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 13px;
+
+            margin-bottom: 5px;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+
+        .sidebar a:hover,
+
+        .sidebar a.activo {
+
+            background: #4b2bb0;
+        }
+
+
+        .cerrar {
+
+            margin-top: 25px;
+
+            border-top: 1px solid #55458d;
+
+            padding-top: 20px !important;
+        }
+
+
+        /* CONTENIDO */
+
+        .contenido {
+
+            margin-left: 250px;
+
+            padding: 35px;
+        }
+
+
+        .titulo {
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 14px;
+
+            box-shadow: 0 5px 20px #ddd;
+
+            margin-bottom: 25px;
+        }
+
+
+        .titulo h1 {
+
+            color: #21115c;
+
+            margin-bottom: 10px;
+        }
+
+
+        .titulo p {
+
+            color: #666;
+
+            line-height: 1.6;
+        }
+
+
+        /* TARJETAS DE SINTAXIS */
+
+        .sintaxis {
+
+            display: grid;
+
+            grid-template-columns:
+
+            repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .tarjeta {
+
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 5px 15px #ddd;
+
+            transition: 0.3s;
+        }
+
+
+        .tarjeta:hover {
+
+            transform: translateY(-5px);
+        }
+
+
+        .tarjeta h2 {
+
+            color: #4b2bb0;
+
+            font-size: 20px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .tarjeta p {
+
+            color: #666;
+
+            line-height: 1.5;
+
+            font-size: 14px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .codigo {
+
+            background: #17104d;
+
+            color: #e8ddff;
+
+            padding: 15px;
+
+            border-radius: 8px;
+
+            overflow-x: auto;
+
+            font-family: monospace;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+
+        /* TABLET */
+
+        @media (max-width: 900px) {
+
+            .sintaxis {
+
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        /* TELÉFONOS */
+
+        @media (max-width: 700px) {
+
+            .menu-btn {
+
+                display: block;
+            }
+
+
+            .sidebar {
+
+                left: -260px;
+
+                z-index: 1000;
+            }
+
+
+            .sidebar.mostrar {
+
+                left: 0;
+            }
+
+
+            .contenido {
+
+                margin-left: 0;
+
+                padding: 20px 15px;
+            }
+
+
+            .titulo {
+
+                padding: 22px;
+            }
+
+
+            .titulo h1 {
+
+                font-size: 25px;
+            }
+
+
+            .tarjeta {
+
+                padding: 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- BARRA SUPERIOR -->
+
+
+    <header class="topbar">
+
+
+        <div class="logo">
+
+            ☕ Aprende Java Fácil
+
+        </div>
+
+
+        <div
+
+            class="menu-btn"
+
+            onclick="abrirMenu()"
+
+        >
+
+            ☰
+
+        </div>
+
+
+    </header>
+
+
+    <!-- MENÚ LATERAL -->
+
+
+    <aside
+
+        class="sidebar"
+
+        id="sidebar"
+
+    >
+
+
+        <h3>
+
+            MENÚ PRINCIPAL
+
+        </h3>
+
+
+        <a href="inicio.html">
+
+            🏠 Inicio
+
+        </a>
+
+
+        <a href="caracteristicas.html">
+
+            🛡️ Características
+
+        </a>
+
+
+        <a href="conceptos.html">
+
+            📘 Conceptos básicos
+
+        </a>
+
+
+        <a
+
+            href="sintaxis.html"
+
+            class="activo"
+
+        >
+
+            💻 Sintaxis
+
+        </a>
+
+
+        <a href="ejemplos.html">
+
+            📚 Ejemplos
+
+        </a>
+
+
+        <a href="ejercicios.html">
+
+            ✏️ Ejercicios prácticos
+
+        </a>
+
+
+        <a href="importancia.html">
+
+            ⭐ Importancia de uso
+
+        </a>
+
+
+        <a
+
+            href="login.html"
+
+            class="cerrar"
+
+        >
+
+            ↪️ Cerrar sesión
+
+        </a>
+
+
+    </aside>
+
+
+    <!-- CONTENIDO -->
+
+
+    <main class="contenido">
+
+
+        <section class="titulo">
+
+
+            <h1>
+
+                💻 Sintaxis de Java
+
+            </h1>
+
+
+            <p>
+
+                La sintaxis son las reglas que debemos seguir
+
+                para escribir correctamente un programa en Java.
+
+            </p>
+
+
+        </section>
+
+
+        <section class="sintaxis">
+
+
+            <div class="tarjeta">
+
+
+                <h2>
+
+                    📦 Crear una clase
+
+                </h2>
+
+
+                <p>
+
+                    Una clase es la estructura principal
+
+                    de un programa en Java.
+
+                </p>
+
+
+                <div class="codigo">
+
+                    public class MiPrograma {<br>
+
+                    }
+
+                </div>
+
+
+            </div>
+
+
+            <div class="tarjeta">
+
+
+                <h2>
+
+                    ▶️ Método main
+
+                </h2>
+
+
+                <p>
+
+                    El método main es el punto donde comienza
+
+                    la ejecución de un programa.
+
+                </p>
+
+
+                <div class="codigo">
+
+                    public static void main(String[] args) {<br>
+
+                    }
+
+                </div>
+
+
+            </div>
+
+
+            <div class="tarjeta">
+
+
+                <h2>
+
+                    📝 Declarar una variable
+
+                </h2>
+
+
+                <p>
+
+                    Para crear una variable se escribe el tipo
+
+                    de dato, el nombre y su valor.
+
+                </p>
+
+
+                <div class="codigo">
+
+                    int edad = 16;
+
+                </div>
+
+
+            </div>
+
+
+            <div class="tarjeta">
+
+
+                <h2>
+
+                    🖥️ Mostrar información
+
+                </h2>
+
+
+                <p>
+
+                    Se utiliza este comando para mostrar
+
+                    información en la pantalla.
+
+                </p>
+
+
+                <div class="codigo">
+
+                    System.out.println("Hola Java");
+
+                </div>
+
+
+            </div>
+
+
+            <div class="tarjeta">
+
+
+                <h2>
+
+                    🔀 Condicional if
+
+                </h2>
+
+
+                <p>
+
+                    Permite ejecutar una acción cuando se cumple
+
+                    una condición.
+
+                </p>
+
+
+                <div class="codigo">
+
+                    if (edad >= 18) {<br>
+
+                    &nbsp;&nbsp;System.out.println("Mayor de edad");<br>
+
+                    }
+
+                </div>
+
+
+            </div>
+
+
+            <div class="tarjeta">
+
+
+                <h2>
+
+                    🔁 Bucle for
+
+                </h2>
+
+
+                <p>
+
+                    Permite repetir una instrucción varias veces.
+
+                </p>
+
+
+                <div class="codigo">
+
+                    for (int i = 0; i &lt; 5; i++) {<br>
+
+                    &nbsp;&nbsp;System.out.println(i);<br>
+
+                    }
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <script>
+
+
+        function abrirMenu() {
+
+
+            document
+
+            .getElementById("sidebar")
+
+            .classList
+
+            .toggle("mostrar");
+
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BRIBAR | Aprende Java Fácil</title>
+
+
+    <style>
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+            font-family: Arial, sans-serif;
+
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            color: white;
+
+            background:
+
+            radial-gradient(
+
+                circle at top,
+
+                #3b208b,
+
+                #21115c,
+
+                #0c0a32
+
+            );
+
+        }
+
+
+        .pantalla-carga {
+
+            width: 100%;
+
+            padding: 20px;
+
+        }
+
+
+        .bienvenida {
+
+            font-size: 20px;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        h1 {
+
+            font-size: 45px;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .logo {
+
+            width: 170px;
+
+            height: 170px;
+
+            margin: auto;
+
+            border: 4px solid white;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            box-shadow:
+
+            0 0 15px #ffffff,
+
+            0 0 30px #9f6cff;
+
+        }
+
+
+        .logo .java {
+
+            font-size: 55px;
+
+        }
+
+
+        .logo strong {
+
+            font-size: 25px;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        .logo small {
+
+            font-size: 9px;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .barra {
+
+            width: 200px;
+
+            height: 10px;
+
+            margin: 30px auto 10px;
+
+            background: #392675;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+
+        }
+
+
+        .progreso {
+
+            height: 100%;
+
+            width: 0%;
+
+            background: #954fff;
+
+            border-radius: 10px;
+
+            animation: cargar 3s forwards;
+
+        }
+
+
+        @keyframes cargar {
+
+            from {
+
+                width: 0%;
+
+            }
+
+            to {
+
+                width: 100%;
+
+            }
+
+        }
+
+
+        .texto-cargando {
+
+            font-size: 14px;
+
+        }
+
+
+        /* DISEÑO PARA TELÉFONOS */
+
+        @media (max-width: 600px) {
+
+
+            .bienvenida {
+
+                font-size: 18px;
+
+            }
+
+
+            h1 {
+
+                font-size: 38px;
+
+            }
+
+
+            .logo {
+
+                width: 150px;
+
+                height: 150px;
+
+            }
+
+
+            .logo .java {
+
+                font-size: 48px;
+
+            }
+
+
+            .logo strong {
+
+                font-size: 22px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <main class="pantalla-carga">
+
+
+        <p class="bienvenida">
+
+            Bienvenidos a mi proyecto
+
+        </p>
+
+
+        <h1>
+
+            BRIBAR
+
+        </h1>
+
+
+        <div class="logo">
+
+
+            <div class="java">
+
+                ☕ 
+
+            </div>
+
+
+            <strong>
+
+                BRIBAR
+
+            </strong>
+
+
+            <small>
+
+                APRENDE JAVA FÁCIL
+
+            </small>
+
+
+        </div>
+
+
+        <div class="barra">
+
+            <div class="progreso"></div>
+
+        </div>
+
+
+        <p class="texto-cargando">
+
+            Cargando...
+
+        </p>
+
+
+    </main>
+
+
+    <script>
+
+
+        // Después de 10 segundos,
+
+        // pasa automáticamente al login
+
+
+        setTimeout(function() {
+
+
+            window.location.href = "login.html";
+
+
+        }, 3000);
+
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BRIBAR | Ejercicios de Java</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: radial-gradient(circle at top, #3b208b, #21115c, #0c0a32);
+            color: white;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.25);
+        }
+
+        header h1 {
+            color: #d8b4fe;
+            font-size: 32px;
+        }
+
+        header p {
+            margin-top: 10px;
+            color: #ddd;
+        }
+
+        .contenedor {
+            width: 90%;
+            max-width: 1000px;
+            margin: 30px auto;
+        }
+
+        .regresar {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            background: #6d28d9;
+            padding: 12px 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .ejercicio {
+            background: rgba(255, 255, 255, 0.10);
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 18px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .ejercicio h2 {
+            color: #d8b4fe;
+            margin-bottom: 15px;
+        }
+
+        .ejercicio p {
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        button {
+            background: #9333ea;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        button:hover {
+            background: #a855f7;
+        }
+
+        .respuesta {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #d8b4fe;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #ccc;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>💜 BRIBAR</h1>
+
+        <p>Ejercicios para aprender Java</p>
+
+    </header>
+
+
+    <main class="contenedor">
+
+        <a href="inicio.html" class="regresar">
+            ⬅️ Regresar al inicio
+        </a>
+
+
+        <!-- EJERCICIO 1 -->
+
+        <section class="ejercicio">
+
+            <h2>Ejercicio 1: Suma de números</h2>
+
+            <p>
+                Escribe dos números y calcula su suma.
+            </p>
+
+            <input type="number" id="numero1" placeholder="Primer número">
+
+            <input type="number" id="numero2" placeholder="Segundo número">
+
+            <button onclick="sumar()">
+                Resolver ejercicio
+            </button>
+
+            <div class="respuesta" id="resultadoSuma"></div>
+
+        </section>
+
+
+        <!-- EJERCICIO 2 -->
+
+        <section class="ejercicio">
+
+            <h2>Ejercicio 2: Saber si eres mayor de edad</h2>
+
+            <p>
+                Escribe tu edad y descubre si eres mayor o menor de edad.
+            </p>
+
+            <input type="number" id="edad" placeholder="Escribe tu edad">
+
+            <button onclick="verificarEdad()">
+                Resolver ejercicio
+            </button>
+
+            <div class="respuesta" id="resultadoEdad"></div>
+
+        </section>
+
+
+        <!-- EJERCICIO 3 -->
+
+        <section class="ejercicio">
+
+            <h2>Ejercicio 3: Número par o impar</h2>
+
+            <p>
+                Escribe un número para saber si es par o impar.
+            </p>
+
+            <input type="number" id="numero" placeholder="Escribe un número">
+
+            <button onclick="verificarNumero()">
+                Resolver ejercicio
+            </button>
+
+            <div class="respuesta" id="resultadoNumero"></div>
+
+        </section>
+
+
+        <!-- EJERCICIO 4 -->
+
+        <section class="ejercicio">
+
+            <h2>Ejercicio 4: Tabla de multiplicar</h2>
+
+            <p>
+                Escribe un número y observa su tabla de multiplicar.
+            </p>
+
+            <input type="number" id="tabla" placeholder="Escribe un número">
+
+            <button onclick="mostrarTabla()">
+                Resolver ejercicio
+            </button>
+
+            <div class="respuesta" id="resultadoTabla"></div>
+
+        </section>
+
+
+        <!-- EJERCICIO 5 -->
+
+        <section class="ejercicio">
+
+            <h2>Ejercicio 5: Saludo personalizado</h2>
+
+            <p>
+                Escribe tu nombre para recibir un saludo.
+            </p>
+
+            <input type="text" id="nombre" placeholder="Escribe tu nombre">
+
+            <button onclick="saludar()">
+                Resolver ejercicio
+            </button>
+
+            <div class="respuesta" id="resultadoSaludo"></div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>© 2026 BRIBAR | Aprende Java Fácil 💜</p>
+
+    </footer>
+
+
+    <script>
+
+        function sumar() {
+
+            let numero1 = Number(document.getElementById("numero1").value);
+
+            let numero2 = Number(document.getElementById("numero2").value);
+
+            let resultado = numero1 + numero2;
+
+            document.getElementById("resultadoSuma").innerHTML =
+                "Resultado: " + resultado;
+
+        }
+
+
+        function verificarEdad() {
+
+            let edad = Number(document.getElementById("edad").value);
+
+            if (edad >= 18) {
+
+                document.getElementById("resultadoEdad").innerHTML =
+                    "Eres mayor de edad.";
+
+            } else {
+
+                document.getElementById("resultadoEdad").innerHTML =
+                    "Eres menor de edad.";
+
+            }
+
+        }
+
+
+        function verificarNumero() {
+
+            let numero = Number(document.getElementById("numero").value);
+
+            if (numero % 2 === 0) {
+
+                document.getElementById("resultadoNumero").innerHTML =
+                    "El número es PAR.";
+
+            } else {
+
+                document.getElementById("resultadoNumero").innerHTML =
+                    "El número es IMPAR.";
+
+            }
+
+        }
+
+
+        function mostrarTabla() {
+
+            let numero = Number(document.getElementById("tabla").value);
+
+            let resultado = "";
+
+            for (let i = 1; i <= 10; i++) {
+
+                resultado += numero + " × " + i + " = " +
+                    (numero * i) + "<br>";
+
+            }
+
+            document.getElementById("resultadoTabla").innerHTML =
+                resultado;
+
+        }
+
+
+        function saludar() {
+
+            let nombre = document.getElementById("nombre").value;
+
+            document.getElementById("resultadoSaludo").innerHTML =
+                "¡Hola, " + nombre + "! Bienvenido a BRIBAR 💜";
+
+        }
+
+    </script>
+
+</body>
+
+</html>
