@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BRIBAR | Conceptos Básicos</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+
+        body {
+            background: #f4f2ff;
+            min-height: 100vh;
+        }
+
+
+        /* BARRA SUPERIOR */
+
+        .topbar {
+
+            height: 70px;
+
+            background: linear-gradient(
+                90deg,
+                #160d4d,
+                #3b208b
+            );
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 25px;
+        }
+
+
+        .logo {
+
+            font-size: 17px;
+
+            font-weight: bold;
+        }
+
+
+        .menu-btn {
+
+            display: none;
+
+            font-size: 28px;
+
+            cursor: pointer;
+        }
+
+
+        /* MENÚ LATERAL */
+
+        .sidebar {
+
+            position: fixed;
+
+            top: 70px;
+
+            left: 0;
+
+            width: 250px;
+
+            height: calc(100vh - 70px);
+
+            padding: 25px 15px;
+
+            background: linear-gradient(
+                180deg,
+                #21115c,
+                #120b3b
+            );
+
+            transition: 0.3s;
+        }
+
+
+        .sidebar h3 {
+
+            color: #ddd;
+
+            font-size: 13px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .sidebar a {
+
+            display: block;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 13px;
+
+            margin-bottom: 5px;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+        }
+
+
+        .sidebar a:hover,
+
+        .sidebar a.activo {
+
+            background: #4b2bb0;
+        }
+
+
+        .cerrar {
+
+            margin-top: 25px;
+
+            border-top: 1px solid #55458d;
+
+            padding-top: 20px !important;
+        }
+
+
+        /* CONTENIDO */
+
+        .contenido {
+
+            margin-left: 250px;
+
+            padding: 35px;
+        }
+
+
+        .titulo {
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 14px;
+
+            box-shadow: 0 5px 20px #ddd;
+
+            margin-bottom: 25px;
+        }
+
+
+        .titulo h1 {
+
+            color: #21115c;
+
+            margin-bottom: 10px;
+        }
+
+
+        .titulo p {
+
+            color: #666;
+
+            line-height: 1.6;
+        }
+
+
+        /* CONCEPTOS */
+
+        .conceptos {
+
+            display: grid;
+
+            grid-template-columns:
+
+            repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .concepto {
+
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 5px 15px #ddd;
+
+            transition: 0.3s;
+        }
+
+
+        .concepto:hover {
+
+            transform: translateY(-5px);
+        }
+
+
+        .concepto h2 {
+
+            color: #4b2bb0;
+
+            font-size: 21px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .concepto p {
+
+            color: #666;
+
+            line-height: 1.6;
+
+            font-size: 14px;
+        }
+
+
+        .codigo {
+
+            margin-top: 15px;
+
+            padding: 15px;
+
+            background: #17104d;
+
+            color: #e8ddff;
+
+            border-radius: 8px;
+
+            overflow-x: auto;
+
+            font-family: monospace;
+
+            font-size: 13px;
+
+        }
+
+
+        /* TABLET */
+
+        @media (max-width: 900px) {
+
+            .conceptos {
+
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        /* TELÉFONOS */
+
+        @media (max-width: 700px) {
+
+            .menu-btn {
+
+                display: block;
+            }
+
+
+            .sidebar {
+
+                left: -260px;
+
+                z-index: 1000;
+            }
+
+
+            .sidebar.mostrar {
+
+                left: 0;
+            }
+
+
+            .contenido {
+
+                margin-left: 0;
+
+                padding: 20px 15px;
+            }
+
+
+            .titulo {
+
+                padding: 22px;
+            }
+
+
+            .titulo h1 {
+
+                font-size: 25px;
+            }
+
+
+            .concepto {
+
+                padding: 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- BARRA SUPERIOR -->
+
+
+    <header class="topbar">
+
+
+        <div class="logo">
+
+            ☕ Aprende Java Fácil
+
+        </div>
+
+
+        <div
+
+            class="menu-btn"
+
+            onclick="abrirMenu()"
+
+        >
+
+            ☰
+
+        </div>
+
+
+    </header>
+
+
+    <!-- MENÚ LATERAL -->
+
+
+    <aside
+
+        class="sidebar"
+
+        id="sidebar"
+
+    >
+
+
+        <h3>
+
+            MENÚ PRINCIPAL
+
+        </h3>
+
+
+        <a href="inicio.html">
+
+            🏠 Inicio
+
+        </a>
+
+
+        <a href="caracteristicas.html">
+
+            🛡️ Características
+
+        </a>
+
+
+        <a
+
+            href="conceptos.html"
+
+            class="activo"
+
+        >
+
+            📘 Conceptos básicos
+
+        </a>
+
+
+        <a href="sintaxis.html">
+
+            💻 Sintaxis
+
+        </a>
+
+
+        <a href="ejemplos.html">
+
+            📚 Ejemplos
+
+        </a>
+
+
+        <a href="ejercicios.html">
+
+            ✏️ Ejercicios prácticos
+
+        </a>
+
+
+        <a href="importancia.html">
+
+            ⭐ Importancia de uso
+
+        </a>
+
+
+        <a
+
+            href="login.html"
+
+            class="cerrar"
+
+        >
+
+            ↪️ Cerrar sesión
+
+        </a>
+
+
+    </aside>
+
+
+    <!-- CONTENIDO -->
+
+
+    <main class="contenido">
+
+
+        <section class="titulo">
+
+
+            <h1>
+
+                📘 Conceptos básicos de Java
+
+            </h1>
+
+
+            <p>
+
+                Antes de comenzar a programar en Java,
+
+                es importante conocer algunos conceptos
+
+                fundamentales del lenguaje.
+
+            </p>
+
+
+        </section>
+
+
+        <section class="conceptos">
+
+
+            <div class="concepto">
+
+
+                <h2>
+
+                    🔤 Variable
+
+                </h2>
+
+
+                <p>
+
+                    Una variable es un espacio en la memoria
+
+                    que permite almacenar información.
+
+                </p>
+
+
+                <div class="codigo">
+
+                    int edad = 16;
+
+                </div>
+
+
+            </div>
+
+
+            <div class="concepto">
+
+
+                <h2>
+
+                    📦 Tipo de dato
+
+                </h2>
+
+
+                <p>
+
+                    Los tipos de datos indican qué tipo de
+
+                    información puede almacenar una variable.
+
+                </p>
+
+
+                <div class="codigo">
+
+                    int numero = 10;<br>
+
+                    String nombre = "Ana";
+
+                </div>
+
+
+            </div>
+
+
+            <div class="concepto">
+
+
+                <h2>
+
+                    🧱 Clase
+
+                </h2>
+
+
+                <p>
+
+                    Una clase es una estructura que sirve como
+
+                    modelo para crear objetos.
+
+                </p>
+
+
+                <div class="codigo">
+
+                    class Persona {
+
+                    }
+
+                </div>
+
+
+            </div>
+
+
+            <div class="concepto">
+
+
+                <h2>
+
+                    🎯 Objeto
+
+                </h2>
+
+
+                <p>
+
+                    Un objeto es una instancia creada a partir
+
+                    de una clase.
+
+                </p>
+
+
+                <div class="codigo">
+
+                    Persona persona1 =
+
+                    new Persona();
+
+                </div>
+
+
+            </div>
+
+
+            <div class="concepto">
+
+
+                <h2>
+
+                    ⚙️ Método
+
+                </h2>
+
+
+                <p>
+
+                    Un método es un bloque de código que realiza
+
+                    una tarea específica.
+
+                </p>
+
+
+                <div class="codigo">
+
+                    void saludar() {
+
+                    }
+
+                </div>
+
+
+            </div>
+
+
+            <div class="concepto">
+
+
+                <h2>
+
+                    📋 Instrucción
+
+                </h2>
+
+
+                <p>
+
+                    Una instrucción es una orden que el programa
+
+                    debe ejecutar.
+
+                </p>
+
+
+                <div class="codigo">
+
+                    System.out.println(
+
+                    "Hola Java"
+
+                    );
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <script>
+
+
+        function abrirMenu() {
+
+
+            document
+
+            .getElementById("sidebar")
+
+            .classList
+
+            .toggle("mostrar");
+
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

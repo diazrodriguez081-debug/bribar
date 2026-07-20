@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BRIBAR | Ejemplos de Java</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: radial-gradient(circle at top, #3b208b, #21115c, #0c0a32);
+            color: white;
+            min-height: 100vh;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.25);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 15px #000;
+        }
+
+        header h1 {
+            color: #d8b4fe;
+            font-size: 32px;
+        }
+
+        header p {
+            margin-top: 8px;
+            color: #ddd;
+        }
+
+        .contenedor {
+            width: 90%;
+            max-width: 1000px;
+            margin: 30px auto;
+        }
+
+        .boton-regresar {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            background: #6d28d9;
+            padding: 12px 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            transition: 0.3s;
+        }
+
+        .boton-regresar:hover {
+            background: #9333ea;
+            transform: scale(1.05);
+        }
+
+        .ejemplo {
+            background: rgba(255, 255, 255, 0.10);
+            border: 1px solid rgba(255, 255, 255, 0.20);
+            border-radius: 18px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .ejemplo h2 {
+            color: #d8b4fe;
+            margin-bottom: 15px;
+        }
+
+        .ejemplo p {
+            margin-bottom: 15px;
+            color: #e5e5e5;
+        }
+
+        pre {
+            background: #100827;
+            padding: 20px;
+            border-radius: 12px;
+            overflow-x: auto;
+            color: #d8b4fe;
+            font-size: 15px;
+            border-left: 5px solid #9333ea;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            margin-top: 30px;
+            color: #ccc;
+        }
+
+        @media (max-width: 600px) {
+
+            header h1 {
+                font-size: 25px;
+            }
+
+            .contenedor {
+                width: 95%;
+            }
+
+            .ejemplo {
+                padding: 18px;
+            }
+
+            pre {
+                font-size: 13px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>💜 BRIBAR</h1>
+
+        <p>Ejemplos de programación en Java</p>
+
+    </header>
+
+
+    <main class="contenedor">
+
+        <a href="inicio.html" class="boton-regresar">
+            ⬅️ Regresar al inicio
+        </a>
+
+
+        <section class="ejemplo">
+
+            <h2>Ejemplo 1: Hola Mundo</h2>
+
+            <p>
+                Este es uno de los primeros programas que se aprende en Java.
+            </p>
+
+            <pre>
+public class HolaMundo {
+
+    public static void main(String[] args) {
+
+        System.out.println("Hola Mundo");
+
+    }
+
+}
+            </pre>
+
+        </section>
+
+
+        <section class="ejemplo">
+
+            <h2>Ejemplo 2: Suma de dos números</h2>
+
+            <p>
+                En este ejemplo se utilizan variables para realizar una suma.
+            </p>
+
+            <pre>
+public class Suma {
+
+    public static void main(String[] args) {
+
+        int numero1 = 10;
+        int numero2 = 5;
+
+        int resultado = numero1 + numero2;
+
+        System.out.println("La suma es: " + resultado);
+
+    }
+
+}
+            </pre>
+
+        </section>
+
+
+        <section class="ejemplo">
+
+            <h2>Ejemplo 3: Condicional IF</h2>
+
+            <p>
+                El condicional permite tomar decisiones dentro del programa.
+            </p>
+
+            <pre>
+public class Edad {
+
+    public static void main(String[] args) {
+
+        int edad = 18;
+
+        if (edad >= 18) {
+
+            System.out.println("Eres mayor de edad");
+
+        } else {
+
+            System.out.println("Eres menor de edad");
+
+        }
+
+    }
+
+}
+            </pre>
+
+        </section>
+
+
+        <section class="ejemplo">
+
+            <h2>Ejemplo 4: Ciclo FOR</h2>
+
+            <p>
+                El ciclo FOR permite repetir una instrucción varias veces.
+            </p>
+
+            <pre>
+public class Contador {
+
+    public static void main(String[] args) {
+
+        for (int i = 1; i <= 5; i++) {
+
+            System.out.println("Número: " + i);
+
+        }
+
+    }
+
+}
+            </pre>
+
+        </section>
+
+
+        <section class="ejemplo">
+
+            <h2>Ejemplo 5: Variables</h2>
+
+            <p>
+                Las variables permiten almacenar información dentro de un programa.
+            </p>
+
+            <pre>
+public class Datos {
+
+    public static void main(String[] args) {
+
+        String nombre = "Xioma";
+
+        int edad = 16;
+
+        System.out.println("Mi nombre es: " + nombre);
+
+        System.out.println("Tengo " + edad + " años");
+
+    }
+
+}
+            </pre>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>© 2026 BRIBAR | Aprende Java Fácil 💜</p>
+
+    </footer>
+
+</body>
+
+</html>
